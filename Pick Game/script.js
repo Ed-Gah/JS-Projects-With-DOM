@@ -1,6 +1,13 @@
 "use-strict";
 
+/* TODO 
+  1. add sound winning sound to the game
+  2. add wining message to the game
+  3. add inputs for players name to the game */
+
+// BUG game background doesn't reset when new game button is pressed
 //Selecting elements
+
 const player0Element = document.querySelector(".player--0");
 const player1Element = document.querySelector(".player--1");
 const score0Element = document.querySelector("#score--0");
@@ -39,6 +46,7 @@ const switchPlayer = function () {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
   activePlayer = activePlayer === 0 ? 1 : 0;
   currentScore = 0;
+  //add the class if isn't there or remove it if its there.
   player0Element.classList.toggle("player--active");
   player1Element.classList.toggle("player--active");
 };
@@ -85,7 +93,7 @@ btnHold.addEventListener("click", function () {
         .classList.add("player--winner");
       document
         .querySelector(`.player--${activePlayer}`)
-        .classList.remove("player--winner");
+        .classList.remove("player--active");
     }
 
     //3. if not switch the players
